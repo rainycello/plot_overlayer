@@ -1,0 +1,26 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Load RMSF data
+wt_data = np.loadtxt('prod_backbone_rmsf_WT.dat')
+mut_data = np.loadtxt('prod_backbone_rmsf_MUT.dat')
+
+# Extract residue indices and RMSF values
+residues_wt = wt_data[:, 0]
+rmsf_wt = wt_data[:, 1]
+residues_mut = mut_data[:, 0]
+rmsf_mut = mut_data[:, 1]
+
+# Plot
+plt.figure(figsize=(10, 5))
+plt.plot(residues_wt, rmsf_wt, label='WT Protease', color='blue', linewidth=2)
+plt.plot(residues_mut, rmsf_mut, label='MUT Protease', color='red', linewidth=2, linestyle='--')
+
+plt.title('Backbone RMSF: WT vs MUT Protease')
+plt.xlabel('Residue Index')
+plt.ylabel('RMSF (Å)')
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.savefig('rmsf_overlay_plot.png', dpi=300)
+plt.show()
