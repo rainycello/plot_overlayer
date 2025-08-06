@@ -12,7 +12,7 @@ parser.add_argument('-o', '--output', default='rmsf_overlay_plot.png', help='Out
 args = parser.parse_args()
 
 # ----------------------------
-# Load Data
+# Data
 # ----------------------------
 wt_data = np.loadtxt(args.wt)
 mut_data = np.loadtxt(args.mut)
